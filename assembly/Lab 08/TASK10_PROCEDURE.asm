@@ -1,0 +1,42 @@
+.MODEL SMALL
+ 
+.STACK 100H
+
+.DATA 
+
+A DW "MACHINE LANGUAGE IS FUN$"
+
+.CODE 
+MAIN PROC 
+
+
+MOV AX,@DATA 
+MOV DS,AX 
+ 
+
+
+CALL PRINT_STRING
+
+
+ 
+
+               
+MOV AX,4C00H
+INT 21H 
+
+MAIN ENDP
+
+PRINT_STRING PROC
+    
+    MOV AH, 9
+    LEA DX, A
+    INT 21H
+    RET     
+    
+PRINT_STRING ENDP
+
+END MAIN 
+  
+
+
+
